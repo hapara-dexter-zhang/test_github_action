@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "app1"
+      - "app1/**"
       - ".github/**/app1.yaml"
   # allows manual trigger on the default branch
   workflow_dispatch:
