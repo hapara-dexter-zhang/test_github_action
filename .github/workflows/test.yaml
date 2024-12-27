@@ -1,0 +1,22 @@
+name: Split Workflow
+
+on:
+  push:
+    branches:
+      - main # Trigger path1 automatically when pushing to the main branch
+  workflow_dispatch: # Allow manual triggering for path2
+
+jobs:
+  path1:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }} # Only run for 'push' events
+    steps:
+      - name: Execute Path 1
+        run: echo "Automatically executing Path 1"
+
+  path2:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' }} # Only run for manual triggers
+    steps:
+      - name: Execute Path 2
+        run: echo "Manually executing Path 2"
