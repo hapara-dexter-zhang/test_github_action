@@ -1,0 +1,21 @@
+name: Application 1
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "app1"
+
+jobs:
+  to_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute to test
+        run: echo "Execute to test for Application 1"
+  
+  to_prod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute to prod
+        run: echo "Execute to prod for Application 1"

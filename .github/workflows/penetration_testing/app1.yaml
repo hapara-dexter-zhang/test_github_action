@@ -1,0 +1,12 @@
+name: Penetration Testing Application 1
+
+on:
+  # only allows manual trigger on the default branch
+  workflow_dispatch:
+
+jobs:
+  app1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute to penetration testing
+        run: echo "Execute to penetration testing for Application 1"

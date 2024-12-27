@@ -1,0 +1,17 @@
+name: Penetration Testing All
+
+on:
+  # only allows manual trigger on the default branch
+  workflow_dispatch:
+
+jobs:
+  app1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy app 1
+        uses: ./.github/workflows/penetration_testing/app1.yml
+  app2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy app 1
+        uses: ./.github/workflows/penetration_testing/app2.yml
