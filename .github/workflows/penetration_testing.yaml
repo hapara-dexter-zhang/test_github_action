@@ -6,7 +6,7 @@ on:
 
 jobs:
   app1:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
     uses: ./.github/workflows/app1.yaml
     # steps:
     #   - name: Checkout
@@ -18,7 +18,7 @@ jobs:
     #   - name: deploy app 1
     #     uses: ./.github/workflows/reusable.yaml
   app2:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
     uses: ./.github/workflows/app2.yaml
     # steps:
     #   - name: Checkout
