@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v
+        uses: actions/checkout@v4
       - name: deploy app 1
         uses: ./.github/workflows/app1.yml
   app2:
@@ -17,5 +17,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: deploy app 1
+      - name: deploy app 2
         uses: ./.github/workflows/app2.yml
