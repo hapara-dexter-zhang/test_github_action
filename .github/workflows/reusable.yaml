@@ -1,0 +1,12 @@
+name: Reusable
+
+on:
+  workflow_call:
+
+jobs:
+  to_pen_test:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute to penetration testing
+        run: echo "Execute to penetration testing"
