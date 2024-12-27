@@ -11,11 +11,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: deploy app 1
-        uses: ./.github/workflows/app1.yml
+        uses: ./.github/workflows/app1.yaml
   app2:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: deploy app 2
-        uses: ./.github/workflows/app2.yml
+        uses: ./.github/workflows/app2.yaml
