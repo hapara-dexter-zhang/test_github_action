@@ -8,10 +8,14 @@ jobs:
   app1:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v
       - name: deploy app 1
-        uses: ./.github/workflows/penetration_testing/app1.yml
+        uses: ./.github/workflows/app1.yml
   app2:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: deploy app 1
-        uses: ./.github/workflows/penetration_testing/app2.yml
+        uses: ./.github/workflows/app2.yml
