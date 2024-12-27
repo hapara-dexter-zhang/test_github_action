@@ -1,0 +1,15 @@
+name: Path 2 Workflow
+
+on:
+  workflow_call: # Allows this workflow to be called by another workflow
+    inputs:
+      some_input:
+        required: false
+        type: string
+
+jobs:
+  path2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute Path 2
+        run: echo "Executing Path 2 with input ${{ inputs.some_input }}"
