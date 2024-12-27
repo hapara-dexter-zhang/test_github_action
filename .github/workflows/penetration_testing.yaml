@@ -7,23 +7,25 @@ on:
 jobs:
   app1:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: List
-        run: ls -alh
-      - name: check file exist
-        run: ls -alh ./.github/workflows/reusable.yaml
-      - name: deploy app 1
-        uses: ./.github/workflows/reusable.yaml
+    uses: ./.github/workflows/app1.yaml
+    # steps:
+    #   - name: Checkout
+    #     uses: actions/checkout@v4
+    #   - name: List
+    #     run: ls -alh
+    #   - name: check file exist
+    #     run: ls -alh ./.github/workflows/reusable.yaml
+    #   - name: deploy app 1
+    #     uses: ./.github/workflows/reusable.yaml
   app2:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: List
-        run: ls -alh
-      - name: check file exist
-        run: ls -alh ./.github/workflows/reusable.yaml
-      - name: deploy app 2
-        uses: ./.github/workflows/reusable.yaml
+    uses: ./.github/workflows/app2.yaml
+    # steps:
+    #   - name: Checkout
+    #     uses: actions/checkout@v4
+    #   - name: List
+    #     run: ls -alh
+    #   - name: check file exist
+    #     run: ls -alh ./.github/workflows/reusable.yaml
+    #   - name: deploy app 2
+    #     uses: ./.github/workflows/reusable.yaml
