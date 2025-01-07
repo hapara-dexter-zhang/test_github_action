@@ -3,9 +3,29 @@ name: Penetration Testing All
 on:
   # only allows manual trigger on the default branch
   workflow_dispatch:
+    inputs:
+      app:
+        type: choice
+        description: The app to deploy to pentest
+        options: 
+        - all
+        - bq-uploader
+        - app2
 
 jobs:
-  app1:
-    uses: ./.github/workflows/app1.yaml
+  bq-uploader:
+    if: ${{ github.event.inputs.app == 'bq-uploader' || github.event.inputs.app == 'all' }}
+    env:
+      NAME: bq-uploader
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute to pentest
+        run: echo "Execute to test for $NAME"
   app2:
-    uses: ./.github/workflows/app2.yaml
+    if: ${{ github.event.inputs.app == 'app2' || github.event.inputs.app == 'all' }}
+    env:
+      NAME: app2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute to pentest
+        run: echo "Execute to test for $NAME"
