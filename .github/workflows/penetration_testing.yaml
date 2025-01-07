@@ -6,6 +6,8 @@ on:
     inputs:
       app:
         type: choice
+        default: "all"
+        required: true
         description: The app to deploy to pentest
         options: 
         - all
