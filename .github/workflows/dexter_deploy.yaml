@@ -85,7 +85,7 @@ jobs:
 
   upload:
     if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-artifacts
-        path: ./integration_tests/cucumber/reports
+    uses: actions/upload-artifact@v4
+    with:
+      name: test-artifacts
+      path: ./integration_tests/cucumber/reports
