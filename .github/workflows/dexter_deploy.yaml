@@ -83,9 +83,9 @@ jobs:
       - name: deploy to pentest
         run: echo "Execute deploy to prod"
 
-  upload:
-    if: always()
-    uses: actions/upload-artifact@v4
-    with:
-      name: test-artifacts
-      path: ./integration_tests/cucumber/reports
+      - name: upload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifacts
+          path: ./integration_tests/cucumber/reports
