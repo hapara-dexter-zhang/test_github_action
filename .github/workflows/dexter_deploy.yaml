@@ -55,6 +55,13 @@ jobs:
       - name: run tests on test env
         run: echo "Execute run tests on test env"
 
+      - name: upload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifacts
+          path: ./integration_tests/cucumber/reports
+
   deploy-prod:
     if:  ${{ github.event_name == 'push' || ((github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call') && github.event.inputs.env == 'prod') }}
     needs: deploy-test
@@ -67,6 +74,12 @@ jobs:
     steps:
       - name: deploy to prod
         run: echo "Execute deploy to prod"
+      - name: upload
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifacts
+          path: ./integration_tests/cucumber/reports
 
   deploy-pentest:
     # only allow to run when:
