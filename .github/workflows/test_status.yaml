@@ -28,10 +28,10 @@ jobs:
       - name: checkout
         run: echo "Execute checkout"
   
-      - name: Fail the job
-        run: |
-          echo "Something went wrong!"
-          exit 1
+      # - name: Fail the job
+      #   run: |
+      #     echo "Something went wrong!"
+      #     exit 1
 
   
   job3:
