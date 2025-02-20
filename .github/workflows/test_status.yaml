@@ -1,0 +1,54 @@
+name: admin-console - Build and Deploy to GKE
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  j1:
+    name: job1
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: checkout
+        run: echo "Execute checkout"
+
+  j2:
+    name: job2
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: checkout
+        run: echo "Execute checkout"
+  
+      - name: Fail the job
+        run: |
+          echo "Something went wrong!"
+          exit 1
+
+  
+  j3:
+    name: job3
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: checkout
+        run: echo "Execute checkout"
+      
+      - name: notify-success
+        run: echo "success"
+        if: ${{ success() }}
+      
+      - name: notify-fail-canceled
+        run: echo "fail-canceled"
+        if: ${{ failure() || cancelled() }}
