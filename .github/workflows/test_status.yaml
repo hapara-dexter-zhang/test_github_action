@@ -44,11 +44,29 @@ jobs:
     steps:
       - name: checkout
         run: echo "Execute checkout"
-      
+  
+  success:
+    name: success
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [j1, j2, j3]
+    permissions:
+      contents: write
+      id-token: write
+    steps:  
       - name: notify-success
         run: echo "success"
         if: ${{ success() }}
-      
+  
+  fail_cancel:
+    name: fail_cancel
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [j1, j2, j3]
+    permissions:
+      contents: write
+      id-token: write
+    steps:
       - name: notify-fail-canceled
         run: echo "fail-canceled"
         if: ${{ failure() || cancelled() }}
