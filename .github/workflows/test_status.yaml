@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  j1:
+  job1:
     name: job1
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -17,7 +17,7 @@ jobs:
       - name: checkout
         run: echo "Execute checkout"
 
-  j2:
+  job2:
     name: job2
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -34,7 +34,7 @@ jobs:
           exit 1
 
   
-  j3:
+  job3:
     name: job3
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -45,28 +45,27 @@ jobs:
       - name: checkout
         run: echo "Execute checkout"
   
-  success:
+  notification:
     name: success
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    needs: [j1, j2, j3]
+    needs: [job1, job2, job3]
     permissions:
       contents: write
       id-token: write
     steps:  
+      - name: Check job statuses
+        run: |
+          if [ "${{ needs.job1.result }}" == "failure" ] || [ "${{ needs.job2.result }}" == "failure" ] || [ "${{ needs.job3.result }}" == "failure" ]; then
+            exit 1  # Fails notification if any job failed
+          else
+            exit 0
+          fi
+
       - name: notify-success
         run: echo "success"
         if: ${{ success() }}
-  
-  fail_cancel:
-    name: fail_cancel
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    needs: [j1, j2, j3]
-    permissions:
-      contents: write
-      id-token: write
-    steps:
+
       - name: notify-fail-canceled
         run: echo "fail-canceled"
         if: ${{ failure() || cancelled() }}
