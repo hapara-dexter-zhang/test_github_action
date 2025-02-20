@@ -46,13 +46,14 @@ jobs:
         run: echo "Execute checkout"
   
   notification:
-    name: success
+    name: notification
     runs-on: ubuntu-latest
     timeout-minutes: 20
     needs: [job1, job2, job3]
     permissions:
       contents: write
       id-token: write
+    if: always()
     steps:  
       - name: Check job statuses
         run: |
