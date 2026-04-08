@@ -12,8 +12,12 @@ on:
   # allow workflow call to support deploy all
   workflow_call:
 
-
 jobs:
+  wait:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 30
+
   to_test:
     if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
