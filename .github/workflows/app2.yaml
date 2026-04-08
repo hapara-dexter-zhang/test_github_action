@@ -26,23 +26,23 @@ jobs:
       - name: Wait for Application 1 to complete
         run: echo "Application 1 completed successfully. Starting Application 2."
 
-  to_test:
-    if: ${{ github.event_name == 'push' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Execute to test
-        run: echo "Execute to test for Application 2"
+  # to_test:
+  #   if: ${{ github.event_name == 'push' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Execute to test
+  #       run: echo "Execute to test for Application 2"
   
-  to_prod:
-    if: ${{ github.event_name == 'push' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Execute to prod
-        run: echo "Execute to prod for Application 2"
+  # to_prod:
+  #   if: ${{ github.event_name == 'push' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Execute to prod
+  #       run: echo "Execute to prod for Application 2"
   
-  to_pen_test:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Execute to penetration testing
-        run: echo "Execute to penetration testing for Application 2"
+  # to_pen_test:
+  #   if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Execute to penetration testing
+  #       run: echo "Execute to penetration testing for Application 2"

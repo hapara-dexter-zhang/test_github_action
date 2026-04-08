@@ -18,24 +18,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sleep 30
-
-  to_test:
-    if: ${{ github.event_name == 'push' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Execute to test
-        run: echo "Execute to test for Application 1"
   
-  to_prod:
-    if: ${{ github.event_name == 'push' }}
+  app1:
     runs-on: ubuntu-latest
     steps:
-      - name: Execute to prod
-        run: echo "Execute to prod for Application 1"
+      - name: Execute Application 1
+        run: echo "Application 1 executed successfully."
 
-  to_pen_test:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Execute to penetration testing
-        run: echo "Execute to penetration testing for Application 1"
+  # to_test:
+  #   if: ${{ github.event_name == 'push' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Execute to test
+  #       run: echo "Execute to test for Application 1"
+  
+  # to_prod:
+  #   if: ${{ github.event_name == 'push' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Execute to prod
+  #       run: echo "Execute to prod for Application 1"
+
+  # to_pen_test:
+  #   if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Execute to penetration testing
+  #       run: echo "Execute to penetration testing for Application 1"
