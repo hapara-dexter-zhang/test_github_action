@@ -12,15 +12,19 @@ on:
   # allow workflow call to support deploy all
   workflow_call:
   # make sure it runs after app1's workflow_call
-  workflow_run:
-    workflows: ["Application 1"]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: ["Application 1"]
+  #   types:
+  #     - completed
+
+concurrency:
+  group: hallpass-pipeline
+  cancel-in-progress: false
 
 
 jobs:
   app2:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Wait for Application 1 to complete

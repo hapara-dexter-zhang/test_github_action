@@ -12,6 +12,10 @@ on:
   # allow workflow call to support deploy all
   workflow_call:
 
+concurrency:
+  group: hallpass-pipeline
+  cancel-in-progress: false
+
 
 jobs:
   wait:
