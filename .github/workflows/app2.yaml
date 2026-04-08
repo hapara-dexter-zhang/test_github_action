@@ -11,6 +11,11 @@ on:
   workflow_dispatch:
   # allow workflow call to support deploy all
   workflow_call:
+  # make sure it runs after app1's workflow_call
+  workflow_run:
+    workflows: ["Application 1"]
+    types:
+      - completed
 
 jobs:
   to_test:

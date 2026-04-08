@@ -12,6 +12,7 @@ on:
   # allow workflow call to support deploy all
   workflow_call:
 
+
 jobs:
   to_test:
     if: ${{ github.event_name == 'push' }}
